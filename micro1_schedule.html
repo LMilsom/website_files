@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advanced Microeconomics 1 — Michaelmas 2026</title>
+<style>
+  /* Palette inherited from the course pack (common/preamble.tex) */
+  :root{
+    --ink:#1F2A33;
+    --teal0:#0E6E71;
+    --teal1:#E5F0F0;
+    --rust:#B14A4E;
+    --sand:#F6F3EC;
+    --grayline:#8E9AA3;
+    --rule:#DFE4E7;
+    --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; padding:0 1.5rem 4rem;
+    font-family:var(--sans);
+    font-size:15px; line-height:1.5;
+    color:var(--ink); background:#fff;
+    font-variant-numeric:tabular-nums;
+  }
+  .wrap{max-width:1180px; margin:0 auto}
+
+  /* ---------- header ---------- */
+  .masthead{padding:3.5rem 0 1.75rem}
+  .eyebrow{
+    font-size:11px; font-weight:600; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--teal0); margin:0 0 .9rem;
+  }
+  h1{
+    margin:0; font-size:clamp(1.75rem,4vw,2.6rem);
+    font-weight:700; letter-spacing:-.02em; line-height:1.1;
+  }
+  .when{margin:.85rem 0 0; font-size:15px}
+  .when b{font-weight:600}
+  .masthead-rule{border:0; border-top:1.5px solid var(--teal0); margin:1.75rem 0 0}
+
+  .arc{
+    display:flex; flex-wrap:wrap; gap:.4rem .55rem; align-items:center;
+    margin:1.5rem 0 0; font-size:12.5px; color:var(--grayline);
+  }
+  .arc span{
+    background:var(--teal1); color:var(--ink);
+    padding:.3rem .6rem; border-radius:2px; font-weight:600;
+  }
+  .arc i{font-style:normal; color:var(--teal0)}
+
+  /* ---------- table ---------- */
+  table{width:100%; border-collapse:collapse; margin-top:2.25rem}
+  thead th{
+    text-align:left; vertical-align:bottom;
+    font-size:10.5px; font-weight:700; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--grayline);
+    padding:0 .85rem .55rem; border-bottom:1.5px solid var(--ink);
+  }
+  tbody td{
+    vertical-align:top; padding:1.15rem .85rem;
+    border-bottom:1px solid var(--rule);
+  }
+
+  .num{width:44px; font-size:19px; font-weight:700; color:var(--teal0)}
+
+  .when-cell{width:104px; font-size:13px; font-weight:600; white-space:nowrap}
+  .when-cell .time{display:block; font-weight:400; color:var(--grayline); font-size:12.5px}
+
+  .session{width:300px}
+  .session h2{margin:0; font-size:16px; font-weight:700; letter-spacing:-.01em; line-height:1.3}
+  .kind{
+    display:inline-block; margin:0 0 .3rem;
+    font-size:10px; font-weight:700; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--teal0);
+  }
+  .note{margin:.5rem 0 0; font-size:12.5px; color:var(--grayline); line-height:1.45}
+
+  .mwg{width:88px; font-size:13.5px; font-weight:600; white-space:nowrap}
+
+  .readings{font-size:13px}
+  .readings dl{display:grid; grid-template-columns:58px 1fr; gap:.4rem .9rem; margin:0}
+  .readings dt{
+    font-size:9.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--grayline); padding-top:.22rem;
+  }
+  .readings dd{margin:0; line-height:1.45}
+  .readings dd.empty{color:var(--rule)}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+    font-size:12px; background:var(--sand); padding:.1rem .3rem; border-radius:2px;
+  }
+
+  tr.doing td{background:var(--sand)}
+  tr.doing .kind{color:var(--rust)}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+    table,tbody,tr,td{display:block; width:auto}
+    tbody tr{
+      border-bottom:1px solid var(--rule); padding:1.25rem 0 1.5rem;
+      display:grid; grid-template-columns:30px 1fr; column-gap:.5rem;
+    }
+    tbody td{border:0; padding:0 0 .55rem}
+    .num{grid-row:1/span 4; width:auto}
+    .when-cell,.session,.mwg,.readings{width:auto}
+    .when-cell .time{display:inline; margin-left:.4rem}
+    .mwg::before{content:"MWG "; font-size:9.5px; letter-spacing:.1em; color:var(--grayline)}
+    .readings dl{grid-template-columns:52px 1fr}
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    body{padding:0; font-size:9pt}
+    .masthead{padding:0 0 .8rem}
+    tbody tr{break-inside:avoid}
+    tr.doing td{background:none; box-shadow:inset 3px 0 0 var(--rust)}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    tbody tr{transition:background .12s ease}
+  }
+  tbody tr:hover td{background:var(--teal1)}
+  tbody tr.doing:hover td{background:#EFE9DC}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">Graduate Core · Michaelmas Term 2026</p>
+  <h1>Advanced Microeconomics 1</h1>
+  <p class="when">
+    Mondays <b>16:00–18:00</b> · Thursdays <b>11:00–13:00</b> · 21 September – 29 October ·
+    Mas-Colell, Whinston &amp; Green, <em>Microeconomic Theory</em>
+  </p>
+  <div class="arc">
+    <span>Choice</span><i>→</i>
+    <span>Demand</span><i>→</i>
+    <span>Duality &amp; welfare</span><i>→</i>
+    <span>Production</span><i>→</i>
+    <span>Uncertainty</span>
+    <i style="color:var(--grayline)">&nbsp;&nbsp;Ch. 1–3, 5–6</i>
+  </div>
+  <hr class="masthead-rule">
+</header>
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">When</th>
+      <th scope="col">Session</th>
+      <th scope="col">MWG</th>
+      <th scope="col">Readings</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <!-- 1 -->
+  <tr>
+    <td class="num">1</td>
+    <td class="when-cell">Mon 21 Sep<span class="time">16:00–18:00</span></td>
+    <td class="session">
+      <h2>Preference, Choice and Demand</h2>
+      <p class="note">Rationality axioms, utility representation, WARP and when the two routes coincide (1.D.2); budget sets, Walras’ law, WARP ⟺ the compensated law of demand, the Slutsky matrix from the choice side</p>
+    </td>
+    <td class="mwg">1 (all)<br>2 (all)</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd>Chen, Liu, Shan, Zhong &amp; Zhou (PNAS 2023); Choi, Kariv, Müller &amp; Silverman (AER 2014), intro + Tab. 1</dd>
+      <dt>Text</dt><dd>Kreps, <em>Microeconomic Foundations I</em>, Ch. 1–4</dd>
+      <dt>Online</dt><dd>MIT OCW 14.121 (Wolitzky), Lec. 1–3</dd>
+      <dt>Wider</dt><dd>Rubinstein, <em>Economic Fables</em> — free, and he argues against his own axioms</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 2 -->
+  <tr>
+    <td class="num">2</td>
+    <td class="when-cell">Thu 24 Sep<span class="time">11:00–13:00</span></td>
+    <td class="session">
+      <h2>Classical Demand I: UMP and EMP</h2>
+      <p class="note">Desirability and convexity axioms, Debreu, the four objects, concavity of <em>e</em>, the duality identities, CES</p>
+    </td>
+    <td class="mwg">3.A–3.E</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd>Deaton &amp; Muellbauer, “An Almost Ideal Demand System” (AER 1980) — a parameterised <em>e</em>(p,u) in the wild</dd>
+      <dt>Text</dt><dd>Jehle &amp; Reny, Ch. 1 (gentler, more worked)</dd>
+      <dt>Online</dt><dd>Nolan Miller, <em>Notes on Microeconomic Theory</em>, Ch. 3</dd>
+      <dt>Wider</dt><dd>Rubinstein, “Dilemmas of an Economic Theorist” (Econometrica 2006)</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 3 -->
+  <tr>
+    <td class="num">3</td>
+    <td class="when-cell">Mon 28 Sep<span class="time">16:00–18:00</span></td>
+    <td class="session">
+      <h2>Classical Demand II: Duality and Slutsky</h2>
+      <p class="note">Envelope theorem, Shephard, Roy, the Slutsky equation; <em>S</em> symmetric, NSD and singular — symmetry as the fingerprint of transitivity</p>
+    </td>
+    <td class="mwg">3.F–3.G</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd>Aguiar &amp; Serrano (JET 2017), §1–3</dd>
+      <dt>Text</dt><dd>Deaton &amp; Muellbauer, <em>Economics and Consumer Behavior</em>, Ch. 2–3</dd>
+      <dt>Online</dt><dd>Levin &amp; Milgrom, “Consumer Theory” notes (Stanford)</dd>
+      <dt>Wider</dt><dd>Kahneman, <em>Thinking, Fast and Slow</em>, Part 4</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 4 -->
+  <tr class="doing">
+    <td class="num">4</td>
+    <td class="when-cell">Thu 1 Oct<span class="time">11:00–13:00</span></td>
+    <td class="session">
+      <span class="kind">Practical</span>
+      <h2>Are You Rational?</h2>
+      <p class="note">GARP and the CCEI implemented from scratch; Bronars power; the same protocol run against a language model</p>
+    </td>
+    <td class="mwg">1.C recap<br>3.J preview</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd>Varian (1982), §1–2; Bronars (1987)</dd>
+      <dt>Text</dt><dd>Chambers &amp; Echenique, <em>Revealed Preference Theory</em>, Ch. 3–4</dd>
+      <dt>Online</dt><dd><code>practical_A_rationality.py</code> — bring a laptop, environment set up <strong>beforehand</strong></dd>
+      <dt>Wider</dt><dd class="empty">—</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 5 -->
+  <tr>
+    <td class="num">5</td>
+    <td class="when-cell">Mon 5 Oct<span class="time">16:00–18:00</span></td>
+    <td class="session">
+      <h2>Welfare, Integrability and Afriat</h2>
+      <p class="note">Integrability, money-metric utility, CV and EV, deadweight loss; GARP, Afriat’s theorem, the CCEI</p>
+    </td>
+    <td class="mwg">3.H–3.J</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd>Brynjolfsson, Collis &amp; Eggers (PNAS 2019); Saez (AEJ: Economic Policy 2010), §I–II; Chetty, Friedman, Olsen &amp; Pistaferri (QJE 2011)</dd>
+      <dt>Text</dt><dd>Chambers &amp; Echenique, <em>Revealed Preference Theory</em>, Ch. 1–4</dd>
+      <dt>Online</dt><dd>MIT OCW 14.121, welfare &amp; revealed-preference lectures</dd>
+      <dt>Wider</dt><dd>Coyle, <em>GDP: A Brief but Affectionate History</em>; Boskin et al. (JEP 1998)</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 6 -->
+  <tr class="doing">
+    <td class="num">6</td>
+    <td class="when-cell">Thu 8 Oct<span class="time">11:00–13:00</span></td>
+    <td class="session">
+      <span class="kind">Exercise Class 1</span>
+      <h2>Problems on Chapters 1–3</h2>
+      <p class="note">Board work, Afriat by hand, timed prelim question</p>
+    </td>
+    <td class="mwg">1–3</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd class="empty">—</dd>
+      <dt>Text</dt><dd class="empty">—</dd>
+      <dt>Online</dt><dd>EC1 problem sheet — issued Mon 28 Sep; board assignments posted Mon 5 Oct</dd>
+      <dt>Wider</dt><dd class="empty">—</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 7 -->
+  <tr>
+    <td class="num">7</td>
+    <td class="when-cell">Mon 12 Oct<span class="time">16:00–18:00</span></td>
+    <td class="session">
+      <h2>Production I: PMP and Aggregation</h2>
+      <p class="note">Netputs, production-set properties, Hotelling, the law of supply with no compensation; aggregate supply, and why demand doesn’t aggregate</p>
+    </td>
+    <td class="mwg">5.A–5.C<br>5.E</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd>Kirman, “Whom or What Does the Representative Individual Represent?” (JEP 1992)</dd>
+      <dt>Text</dt><dd>Varian, <em>Microeconomic Analysis</em>, Ch. 1–5</dd>
+      <dt>Online</dt><dd>Muñoz-Garcia, EconS 501, production slides</dd>
+      <dt>Wider</dt><dd>Hayek, “The Use of Knowledge in Society” (1945)</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 8 -->
+  <tr>
+    <td class="num">8</td>
+    <td class="when-cell">Thu 15 Oct<span class="time">11:00–13:00</span></td>
+    <td class="session">
+      <h2>Production II: Cost, Markups, Efficiency</h2>
+      <p class="note">CMP, the duality trilogy completed, cost geometry, μ = θ<sub>V</sub>/s<sub>V</sub>; efficiency and supporting prices; objectives of the firm</p>
+    </td>
+    <td class="mwg">5.C–5.D<br>5.F–5.G</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd>De Loecker, Eeckhout &amp; Unger (QJE 2020), §I–III; Bond, Hashemi, Kaplan &amp; Zoch (JME 2021), §1–2; Hsieh &amp; Klenow (2009), §I–II</dd>
+      <dt>Text</dt><dd>Varian, <em>Microeconomic Analysis</em>, Ch. 4–6</dd>
+      <dt>Online</dt><dd>Tian (Texas A&amp;M), production notes</dd>
+      <dt>Wider</dt><dd>Eeckhout, <em>The Profit Paradox</em> — by one of the DLEU authors</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 9 -->
+  <tr class="doing">
+    <td class="num">9</td>
+    <td class="when-cell">Mon 19 Oct<span class="time">16:00–18:00</span></td>
+    <td class="session">
+      <span class="kind">Exercise Class 2</span>
+      <h2>Problems on Chapter 5</h2>
+      <p class="note">Production-set structure, Cobb–Douglas end to end, the law of supply, markup identification, Gorman form, efficiency</p>
+    </td>
+    <td class="mwg">5</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd class="empty">—</dd>
+      <dt>Text</dt><dd class="empty">—</dd>
+      <dt>Online</dt><dd>EC2 problem sheet — issued Mon 12 Oct. Course synopsis handout distributed today</dd>
+      <dt>Wider</dt><dd class="empty">—</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 10 -->
+  <tr>
+    <td class="num">10</td>
+    <td class="when-cell">Thu 22 Oct<span class="time">11:00–13:00</span></td>
+    <td class="session">
+      <h2>Uncertainty I: Expected Utility and Risk Aversion</h2>
+      <p class="note">Lotteries, the independence axiom, the expected utility theorem; certainty equivalents, Arrow–Pratt, CARA and CRRA</p>
+    </td>
+    <td class="mwg">6.A–6.C</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd>Rabin (Econometrica 2000); Sydnor (AEJ: Applied 2010); Chetty (AER 2006), optional</dd>
+      <dt>Text</dt><dd>Gollier, <em>The Economics of Risk and Time</em>, Ch. 1–2</dd>
+      <dt>Online</dt><dd>Rubinstein, <em>Lecture Notes in Microeconomic Theory</em> (free), risk chapters</dd>
+      <dt>Wider</dt><dd>Rabin &amp; Thaler, “Anomalies: Risk Aversion” (JEP 2001) — the dead-parrot paper</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 11 -->
+  <tr>
+    <td class="num">11</td>
+    <td class="when-cell">Mon 26 Oct<span class="time">16:00–18:00</span></td>
+    <td class="session">
+      <h2>Uncertainty II: Dominance, States, Ambiguity</h2>
+      <p class="note">FOSD, SOSD, mean-preserving spreads; state-dependent utility and insurance; subjective probability, Savage in outline, Ellsberg</p>
+    </td>
+    <td class="mwg">6.D–6.F</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd>Choi, Fisman, Gale &amp; Kariv (AER 2007); Barseghyan, Molinari, O’Donoghue &amp; Teitelbaum (AER 2013); Ellsberg (QJE 1961)</dd>
+      <dt>Text</dt><dd>Wakker, <em>Prospect Theory: For Risk and Ambiguity</em>, Ch. 1–2</dd>
+      <dt>Online</dt><dd>Machina, “Choice under Uncertainty: Problems Solved and Unsolved” (JEP 1987)</dd>
+      <dt>Wider</dt><dd>Kay &amp; King, <em>Radical Uncertainty</em> — or just tell them what Daniel Ellsberg did next</dd>
+    </dl></td>
+  </tr>
+
+  <!-- 12 -->
+  <tr class="doing">
+    <td class="num">12</td>
+    <td class="when-cell">Thu 29 Oct<span class="time">11:00–13:00</span></td>
+    <td class="session">
+      <span class="kind">Exercise Class 3</span>
+      <h2>Chapter 6 · Past-Exam Hour</h2>
+      <p class="note">11:00–12:00 problems on Ch. 6 — the EU derivation, Arrow–Pratt, SOSD<br>12:00–13:00 past-exam questions spanning Ch. 1–3, 5 and 6</p>
+    </td>
+    <td class="mwg">6<br>1–3, 5</td>
+    <td class="readings"><dl>
+      <dt>Papers</dt><dd class="empty">—</dd>
+      <dt>Text</dt><dd class="empty">—</dd>
+      <dt>Online</dt><dd>EC3 problem sheet — issued Thu 22 Oct. Past prelim papers; the ten cold derivations</dd>
+      <dt>Wider</dt><dd class="empty">—</dd>
+    </dl></td>
+  </tr>
+
+  </tbody>
+</table>
+
+</div>
+</body>
+</html>
