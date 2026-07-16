@@ -1,0 +1,34 @@
+*** Advanced Microeconomics I: Economics Decision Making *** 
+- Lecturer: Luke Heath Milsom
+
+** Policies ** 
+- Recording: Lectures will be recorded and uploaded the next day. Classes will not be recorded. 
+- Preparation: Reading for the lectures is mandatory. Take-home-work for classes is mandatory.
+- Assessment: 100% closed book exam joint with the second half of adv micro 1.
+- Office hours: by appointment, email me luke.heathmilsom@kuleuven.be
+
+
+** Schedule **
+
+Mondays 16:00–18:00 · Tuesdays 11:00–13:00 · 21 September – 27 October
+
+| # | When | Session | MWG | Readings |
+|---|---|---|---|---|
+| **1** | Mon 21 Sep<br>16:00–18:00 | **Preference, Choice and Demand**<br>*First 20 min: the instrument →* | **1** (all)<br>**2** (all) | **Papers** Chen, Liu, Shan, Zhong & Zhou (PNAS 2023); Choi, Kariv, Müller & Silverman (AER 2014), intro + Tab. 1<br>**Text** Kreps, *Microeconomic Foundations I*, Ch. 1–4<br>**Online** MIT OCW 14.121 (Wolitzky), Lec. 1–3<br>**Wider** Rubinstein, *Economic Fables* — free, and he argues against his own axioms |
+| **2** | Tue 22 Sep<br>11:00–13:00 | **Classical Demand I: UMP and EMP** | **3.A–3.E** | **Papers** Deaton & Muellbauer, "An Almost Ideal Demand System" (AER 1980) — a parameterised *e*(p,u) in the wild<br>**Text** Jehle & Reny, Ch. 1 (gentler, more worked)<br>**Online** Nolan Miller, *Notes on Microeconomic Theory*, Ch. 3<br>**Wider** Rubinstein, "Dilemmas of an Economic Theorist" (Econometrica 2006) |
+| **3** | Mon 28 Sep<br>16:00–18:00 | **Classical Demand II: Duality and Slutsky** | **3.F–3.G** | **Papers** Aguiar & Serrano (JET 2017), §1–3<br>**Text** Deaton & Muellbauer, *Economics and Consumer Behavior*, Ch. 2–3<br>**Online** Levin & Milgrom, "Consumer Theory" notes (Stanford)<br>**Wider** Kahneman, *Thinking, Fast and Slow*, Part 4 |
+| **4** | Tue 29 Sep<br>11:00–13:00 | **PRACTICAL A — Are You Rational?**<br>*← uses instrument #1* | 1.C recap<br>3.J preview | **Papers** Varian (1982), §1–2; Bronars (1987)<br>**Text** Chambers & Echenique, *Revealed Preference Theory*, Ch. 3–4<br>**Online** `practical_A_rationality.py` (bring a laptop; env set up **beforehand**)<br>**Wider** — |
+| **5** | Mon 5 Oct<br>16:00–18:00 | **Welfare, Integrability and Afriat**<br>*← WTA/WTP reveal* | **3.H–3.J** | **Papers** Brynjolfsson, Collis & Eggers (PNAS 2019); Saez (2010), §I–II; Varian (1982), §1–2<br>**Text** Chambers & Echenique, *Revealed Preference Theory*, Ch. 1–4<br>**Online** MIT OCW 14.121, welfare & revealed-preference lectures<br>**Wider** Coyle, *GDP: A Brief but Affectionate History*; Boskin et al. (JEP 1998) |
+| **6** | Tue 6 Oct<br>11:00–13:00 | **EXERCISE CLASS 1**<br>*Referee menu released* | **1–3** | **Papers** Referee menu: Choi–Fisman–Gale–Kariv (AER 2007) · Brynjolfsson–Collis–Eggers (PNAS 2019) · Bond–Hashemi–Kaplan–Zoch (JME 2021) — pick one, 3pp, due Mon 26 Oct<br>**Text** —<br>**Online** EC1 problem sheet (board assignments posted Mon 5 Oct)<br>**Wider** — |
+| **7** | Mon 12 Oct<br>16:00–18:00 | **Production I: PMP and Aggregation** | **5.A–5.C**<br>**5.E** | **Papers** Kirman, "Whom or What Does the Representative Individual Represent?" (JEP 1992)<br>**Text** Varian, *Microeconomic Analysis*, Ch. 1–5<br>**Online** Muñoz-Garcia, EconS 501, production slides<br>**Wider** Hayek, "The Use of Knowledge in Society" (1945) |
+| **8** | Tue 13 Oct<br>11:00–13:00 | **Production II: Cost, Markups, Efficiency** | **5.C–5.D**<br>**5.F–5.G** | **Papers** De Loecker, Eeckhout & Unger (QJE 2020), §I–III; Bond, Hashemi, Kaplan & Zoch (JME 2021), §1–2; Hsieh & Klenow (2009), §I–II<br>**Text** Varian, *Microeconomic Analysis*, Ch. 4–6<br>**Online** Tian (Texas A&M), production notes<br>**Wider** Eeckhout, *The Profit Paradox* — by one of the DLEU authors |
+| **9** | Mon 19 Oct<br>16:00–18:00 | **Uncertainty I: Expected Utility and Risk Aversion**<br>*← Rabin reveal* | **6.A–6.C** | **Papers** Rabin (Econometrica 2000); Sydnor (AEJ: Applied 2010); Chetty (AER 2006), optional<br>**Text** Gollier, *The Economics of Risk and Time*, Ch. 1–2<br>**Online** Rubinstein, *Lecture Notes in Microeconomic Theory* (free), risk chapters<br>**Wider** Rabin & Thaler, "Anomalies: Risk Aversion" (JEP 2001) — the dead-parrot paper |
+| **10** | Tue 20 Oct<br>11:00–13:00 | **Uncertainty II: Dominance, States, Ambiguity**<br>*← Ellsberg reveal* | **6.D–6.F** | **Papers** Choi, Fisman, Gale & Kariv (AER 2007); Barseghyan, Molinari, O'Donoghue & Teitelbaum (AER 2013); Ellsberg (QJE 1961)<br>**Text** Wakker, *Prospect Theory: For Risk and Ambiguity*, Ch. 1–2<br>**Online** Machina, "Choice under Uncertainty: Problems Solved and Unsolved" (JEP 1987)<br>**Wider** Kay & King, *Radical Uncertainty* — or just tell them what Daniel Ellsberg did next |
+| **11** | Mon 26 Oct<br>16:00–18:00 | **EXERCISE CLASS 2**<br>*Referee reports due* | **5**, **6** | **Papers** —<br>**Text** —<br>**Online** EC2 problem sheet: production structure, Gorman form, markup identification, efficiency; EU derivation, Arrow–Pratt, SOSD<br>**Wider** — |
+| **12** | Tue 27 Oct<br>11:00–13:00 | **Referee Presentations + Past-Exam Hour**<br>11:00–12:00 presentations (3 groups, by paper)<br>12:00–13:00 past-exam questions | **1–3**, **5–6** | **Papers** The three referee papers (discussants receive them Sun 25 Oct)<br>**Text** —<br>**Online** Past prelim papers; the ten cold derivations (L8 checklist)<br>**Wider** — |
+
+---
+
+**Data thread:** collect at #1 → analyse at #4 → WTA/WTP reveal at #5 → Rabin reveal at #9 → Ellsberg reveal at #10. Five sessions off one 20-minute instrument.
+
+**Referee menu maps onto the course:** CFGK → #10, BCE → #5, Bond et al. → #8. Each student referees a paper whose theory they'll have seen — and in CFGK's case, been a subject in.
