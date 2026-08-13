@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introduction to the Economics of Development — D0E32A</title>
+
+<!-- ==========================================================================
+     Introduction to the Economics of Development · D0E32A · KU Leuven
+     Same layout/palette as the Advanced Micro 1 site (micro1_site/index.html).
+
+     Structure: one table, four blocks —
+       Pre-Course  · Econometrics Primer (videos, optional)
+       Lectures    · Weeks 1–7, one row per question
+       Project     · Weeks 8–12, incl. 1-1 meetings (24 & 27 Nov)
+                     and presentations (8 & 11 Dec)
+       Exam        · January exam period
+
+     TO POST/SWAP A FILE: each slide link is a single
+         <a class="dl" href="...">Slides &darr;</a>
+     For anything not yet available use the greyed pill —
+         <span class="dl pending">Slides soon</span>
+     ========================================================================== -->
+
+<style>
+  /* Palette inherited from the slide pack (common/preamble.tex) */
+  :root{
+    --ink:#1F2A33;
+    --teal0:#0E6E71;
+    --teal1:#E5F0F0;
+    --rust:#B14A4E;
+    --sand:#F6F3EC;
+    --grayline:#8E9AA3;
+    --rule:#DFE4E7;
+    --sans:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; padding:0 1.5rem 4rem;
+    font-family:var(--sans);
+    font-size:15px; line-height:1.5;
+    color:var(--ink); background:#fff;
+    font-variant-numeric:tabular-nums;
+  }
+  .wrap{max-width:1180px; margin:0 auto}
+  a{color:var(--teal0)}
+  a:hover{color:var(--ink)}
+  :focus-visible{outline:2px solid var(--teal0); outline-offset:2px}
+
+  /* ---------- masthead ---------- */
+  .masthead{padding:3.5rem 0 0}
+  .eyebrow{
+    font-size:11px; font-weight:600; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--teal0); margin:0 0 .9rem;
+  }
+  .eyebrow a{color:var(--teal0); text-decoration:none; border-bottom:1px solid var(--teal1)}
+  .eyebrow a:hover{border-bottom-color:var(--teal0)}
+  h1{
+    margin:0; font-size:clamp(1.75rem,4vw,2.6rem);
+    font-weight:700; letter-spacing:-.02em; line-height:1.1;
+  }
+  .when{margin:.85rem 0 0; font-size:15px}
+  .when b{font-weight:600}
+  .masthead-rule{border:0; border-top:1.5px solid var(--teal0); margin:1.6rem 0 0}
+
+  /* ---------- footer note ---------- */
+  .lede{margin:1.75rem 0 0; font-size:14px; line-height:1.6; color:var(--grayline)}
+
+  /* ---------- block (left) column ---------- */
+  td.qcell{width:185px; min-width:160px; vertical-align:top; font-size:12.5px;
+           line-height:1.5; padding:1.15rem .85rem .85rem 0;
+           border-right:1px solid var(--rule)}
+  td.qcell .qspan{display:block; font-size:10px; font-weight:700; letter-spacing:.14em;
+                  text-transform:uppercase; color:var(--ink); opacity:.55;
+                  margin:0 0 .8rem; padding-bottom:.45rem;
+                  border-bottom:1px solid rgba(31,42,51,.18)}
+  td.qcell p{margin:0 0 .9rem}
+  td.qcell p b{display:block; font-size:10px; letter-spacing:.14em;
+               text-transform:uppercase; margin-bottom:2px}
+  td.qcell .qa{color:var(--teal0)}
+  td.qcell .qb{color:var(--rust)}
+  tbody tr:hover td.qcell{background:transparent}
+  tr.sec td{border-top:2.5px solid var(--ink)}
+
+  /* ---------- table ---------- */
+  table{width:100%; border-collapse:collapse; margin-top:2.25rem}
+  thead th{
+    text-align:left; vertical-align:bottom;
+    font-size:10.5px; font-weight:700; letter-spacing:.13em;
+    text-transform:uppercase; color:var(--grayline);
+    padding:0 .85rem .55rem; border-bottom:1.5px solid var(--ink);
+  }
+  tbody td{vertical-align:top; padding:1.15rem .85rem; border-bottom:1px solid var(--rule)}
+
+  .when-cell{width:118px; font-size:13px; font-weight:600; white-space:nowrap}
+  .lecno{display:block; font-size:10.5px; font-weight:700; letter-spacing:.11em;
+         text-transform:uppercase; color:var(--teal0); margin-bottom:3px}
+  .when-cell .time{display:block; font-weight:400; color:var(--grayline); font-size:12.5px}
+  .session{width:296px}
+  .session h2{margin:0; font-size:16px; font-weight:700; letter-spacing:-.01em; line-height:1.3}
+  .note{margin:.5rem 0 0; font-size:12.5px; color:var(--grayline); line-height:1.45}
+
+  /* download pills */
+  .dl{
+    display:inline-block; margin:.6rem .4rem 0 0;
+    font-size:10.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase;
+    color:var(--teal0); text-decoration:none;
+    border:1px solid var(--teal0); border-radius:2px; padding:.22rem .5rem;
+  }
+  .dl:hover{background:var(--teal0); color:#fff}
+  .dl.pending{
+    color:var(--grayline); border-color:var(--rule);
+    border-style:dashed; pointer-events:none;
+  }
+
+  .readings{font-size:13px}
+  .readings dl{display:grid; grid-template-columns:58px 1fr; gap:.4rem .9rem; margin:0}
+  .readings dt{
+    font-size:9.5px; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--grayline); padding-top:.22rem;
+  }
+  .readings dd{margin:0; line-height:1.45}
+  .readings dd a{color:var(--teal0); text-decoration:none; border-bottom:1px solid var(--teal1)}
+  .readings dd a:hover{border-bottom-color:var(--teal0)}
+
+  tr.doing td{background:var(--sand)}
+  tbody tr:hover td{background:var(--teal1)}
+  tbody tr.doing:hover td{background:#EFE9DC}
+  @media (prefers-reduced-motion:no-preference){
+    tbody tr{transition:background .12s ease}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:860px){
+    h1{font-size:1.42rem}
+    .when{font-size:13px}
+    thead{position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0)}
+    table,tbody,tr,td{display:block}
+    .when-cell,.session,.readings,td.qcell{width:auto; min-width:0}
+    tbody tr{border-bottom:1px solid var(--rule); padding:1.15rem 0 1.4rem}
+    tbody td{border:0; padding:0 0 .6rem}
+    tbody tr:hover td{background:transparent}
+
+    /* section start: heavy rule on the card, block label first inside it */
+    tr.sec{border-top:3px solid var(--ink)}
+    tr.sec td{border-top:0}
+    td.qcell{
+      border-right:0; padding:.2rem 0 .95rem; margin:0 0 .95rem;
+      border-bottom:1px solid var(--rule);
+    }
+    td.qcell p{margin:0 0 .55rem}
+    td.qcell .qspan{margin-bottom:.55rem}
+
+    /* label · date · time on one wrapping line */
+    .when-cell{white-space:normal; padding-bottom:.65rem}
+    .lecno{display:inline-block; margin:0 .55rem 0 0}
+    .when-cell .time{display:inline; margin-left:.4rem}
+
+    .readings dl{grid-template-columns:74px 1fr}
+
+    /* meetings / presentations tint becomes a clean full-card band */
+    tr.doing{background:var(--sand); border-radius:4px;
+             padding-left:.85rem; padding-right:.85rem}
+    tr.doing td{background:transparent}
+    tbody tr.doing:hover td{background:transparent}
+  }
+
+  /* ---------- print ---------- */
+  @media print{
+    body{padding:0; font-size:9pt}
+    .masthead{padding:0 0 .8rem}
+    tbody tr{break-inside:avoid}
+    tr.doing td{background:none; box-shadow:inset 3px 0 0 var(--rust)}
+    .dl{border:0; padding:0; color:var(--ink)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="masthead">
+  <p class="eyebrow">KU Leuven · <a href="https://onderwijsaanbod.kuleuven.be/syllabi/e/D0E32AE.htm">D0E32A</a></p>
+  <h1>Introduction to the Economics of Development</h1>
+  <p class="when">
+    Tuesdays, 16:00–18:00, MSI1 00.28 · Fridays, 11:00–13:00, AGOR 00.E20 ·
+    <a href="https://www.lukemilsom.com/">Luke Heath Milsom</a> ·
+    TA: Justin Mutambeshya <a href="mailto:justin.mutambeshya@student.kuleuven.be">justin.mutambeshya@student.kuleuven.be</a>
+  </p>
+  <hr class="masthead-rule">
+</header>
+
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Block</th>
+      <th scope="col">When</th>
+      <th scope="col">Session</th>
+      <th scope="col">Readings</th>
+    </tr>
+  </thead>
+  <tbody>
+
+  <!-- ================= PRE-COURSE ================= -->
+  <tr class="sec">
+    <td class="qcell" rowspan="1">
+      <span class="qspan">Pre-Course</span>
+      <p class="qa"><b>Format</b>Optional · online · self-paced</p>
+    </td>
+    <td class="when-cell"><span class="lecno">Primer</span>Online</td>
+    <td class="session">
+      <h2>Econometrics Primer</h2>
+      <a class="dl" href="https://www.youtube.com/playlist?list=PLMKomyIRal87GytM6m18UXT_glo9AZK1W">Videos &darr;</a>
+    </td>
+    <td class="readings"><dl>
+      <dt>About</dt><dd>A series of short videos, to watch as and when you want, bringing everyone up to speed on the foundational econometrics and statistics needed to think and argue as an economist and to understand and critique the research we discuss. A solid understanding is necessary to follow the lectures and perform well in the exam.</dd>
+    </dl></td>
+  </tr>
+
+  <!-- ================= LECTURES · WEEKS 1–7 ================= -->
+  <tr class="sec">
+    <td class="qcell" rowspan="8">
+      <span class="qspan">Lectures · Weeks 1–7</span>
+      <p class="qa"><b>Prep</b>Read the introduction of each main paper before the lecture — you are not expected to understand it all.</p>
+      <p><b>Resources</b>No textbook. Background: Duflo &amp; Banerjee, <em>Poor Economics</em> (2011); Banerjee et&nbsp;al., <em>Understanding Poverty</em> (2006); <a href="https://blogs.worldbank.org/en/blogs">World Bank blogs</a>, <a href="https://developingeconomics.org/">Developing Economics</a>, <a href="https://voxdev.org/">VoxDev</a>, <a href="https://www.theigc.org/blog">IGC</a>.</p>
+    </td>
+    <td class="when-cell"><span class="lecno">Introduction</span></td>
+    <td class="session">
+      <h2>Introduction, measurement, and facts</h2>
+      <a class="dl" href="https://lmilsom.github.io/website_files/1_introduction.pdf">Slides &darr;</a>
+    </td>
+    <td class="readings"><dl>
+      <dt>Read</dt><dd><a href="https://lmilsom.github.io/website_files/Development_Policy_and_Development_Econo.pdf">Handbook chapter: Development Policy and Development Economics</a></dd>
+      <dt>Watch</dt><dd><a href="https://youtu.be/fIFB6SBw2lU">MIT OpenCourseWare intro lecture with Esther Duflo</a></dd>
+      <dt>Data</dt><dd><a href="https://ourworldindata.org/economic-inequality">Our World in Data: economic inequality</a></dd>
+    </dl></td>
+  </tr>
+
+  <tr>
+    <td class="when-cell"><span class="lecno">Question 1</span></td>
+    <td class="session">
+      <h2>Why do people stay poor?</h2>
+      <a class="dl" href="https://lmilsom.github.io/website_files/2_why_do_people_stay_poor.pdf">Slides &darr;</a>
+    </td>
+    <td class="readings"><dl>
+      <dt>Main</dt><dd><b><a href="https://www.nber.org/system/files/working_papers/w29340/w29340.pdf">Balboni et&nbsp;al. (2022)</a></b></dd>
+      <dt>Theory</dt><dd>Poverty traps, and misallocation</dd>
+      <dt>Metrics</dt><dd>Identification, endogeneity, RCTs</dd>
+      <dt>More</dt><dd><a href="https://ecommons.cornell.edu/server/api/core/bitstreams/5341ffd5-0a17-434e-a38a-157f8bec24d9/content">Barrett &amp; Swallow (2006)</a>; <a href="https://pubs.aeaweb.org/doi/pdf/10.1257/jep.28.3.127">Kraay &amp; McKenzie (2014)</a>; <a href="https://www.nature.com/articles/s41599-024-03328-3">Turnbull et&nbsp;al. (2024)</a></dd>
+    </dl></td>
+  </tr>
+
+  <tr>
+    <td class="when-cell"><span class="lecno">Question 2</span></td>
+    <td class="session">
+      <h2>Are natural resources a solution or a trap?</h2>
+      <a class="dl" href="https://lmilsom.github.io/website_files/3_natural_resources.pdf">Slides &darr;</a>
+    </td>
+    <td class="readings"><dl>
+      <dt>Main</dt><dd><b><a href="https://www.sciencedirect.com/science/article/abs/pii/S0014292101001258">Sachs &amp; Warner (2001)</a></b>; <b><a href="https://www.nyudri.org/assets/publications/2004/resourcewealth.pdf">Jensen &amp; Wantchekon (2004)</a></b>; <b><a href="https://link.springer.com/article/10.1007/s10887-015-9121-4">Gollin et&nbsp;al. (2016)</a></b></dd>
+      <dt>Theory</dt><dd>Political economy of development, Dutch disease</dd>
+      <dt>Metrics</dt><dd>Selection on observables, fixed effects</dd>
+      <dt>More</dt><dd><a href="https://www.aeaweb.org/articles?id=10.1257/jel.49.2.366">van der Ploeg (2011)</a>; <a href="https://pure.iiasa.ac.at/id/eprint/2060/1/CP-82-058.pdf">Corden &amp; Neary (1982)</a></dd>
+    </dl></td>
+  </tr>
+
+  <tr>
+    <td class="when-cell"><span class="lecno">Question 3</span></td>
+    <td class="session">
+      <h2>Can we manufacture prosperity?</h2>
+      <a class="dl" href="https://lmilsom.github.io/website_files/4_manufacturing.pdf">Slides &darr;</a>
+    </td>
+    <td class="readings"><dl>
+      <dt>Main</dt><dd><b><a href="https://www.nber.org/system/files/working_papers/w20935/w20935.pdf">Rodrik (2016)</a></b></dd>
+      <dt>Theory</dt><dd>Structural transformation, international trade</dd>
+      <dt>Metrics</dt><dd>Fixed effects, time series</dd>
+      <dt>More</dt><dd><a href="https://www.nber.org/system/files/working_papers/w18996/w18996.pdf">Herrendorf, Rogerson &amp; Valentinyi (2014)</a>; <a href="https://onlinelibrary.wiley.com/doi/full/10.3982/ECTA20964">Fan et&nbsp;al. (2023)</a></dd>
+    </dl></td>
+  </tr>
+
+  <tr>
+    <td class="when-cell"><span class="lecno">Question 4</span></td>
+    <td class="session">
+      <h2>Are institutions key?</h2>
+      <a class="dl" href="https://lmilsom.github.io/website_files/5_institutions.pdf">Slides &darr;</a>
+    </td>
+    <td class="readings"><dl>
+      <dt>Main</dt><dd><b><a href="https://www.nber.org/system/files/working_papers/w7771/w7771.pdf">Acemoglu et&nbsp;al. (2001)</a></b>; <b><a href="https://www.nber.org/system/files/working_papers/w10568/w10568.pdf">Glaeser et&nbsp;al. (2004)</a></b>; <b><a href="https://www.aeaweb.org/articles?id=10.1257/aer.102.6.3059">Albouy (2012)</a></b></dd>
+      <dt>Theory</dt><dd>Institutions</dd>
+      <dt>Metrics</dt><dd>Instrumental variables</dd>
+      <dt>More</dt><dd>Acemoglu &amp; Robinson, <em>Why Nations Fail</em></dd>
+    </dl></td>
+  </tr>
+
+  <tr>
+    <td class="when-cell"><span class="lecno">Question 5</span></td>
+    <td class="session">
+      <h2>Are credit constraints constraining development?</h2>
+      <a class="dl" href="https://lmilsom.github.io/website_files/6_microfinance.pdf">Slides &darr;</a>
+    </td>
+    <td class="readings"><dl>
+      <dt>Main</dt><dd><b><a href="https://www.nber.org/system/files/working_papers/w18950/w18950.pdf">Duflo et&nbsp;al. (2013)</a></b>; <b><a href="https://drive.google.com/file/d/17JVDKCy2Cyi-zOAJL64pU9l0K39X6Syy/view">Egger et&nbsp;al. (2023)</a></b></dd>
+      <dt>Theory</dt><dd>General equilibrium effects</dd>
+      <dt>Metrics</dt><dd>RCT + IV</dd>
+      <dt>More</dt><dd><a href="https://eprints.lse.ac.uk/88190/1/app.20170299.pdf">Meager (2019)</a>; <a href="https://www.nber.org/system/files/working_papers/w26346/w26346.pdf">Banerjee et&nbsp;al. (2024)</a></dd>
+    </dl></td>
+  </tr>
+
+  <tr>
+    <td class="when-cell"><span class="lecno">Question 6</span></td>
+    <td class="session">
+      <h2>The City: Humanity's greatest invention?</h2>
+      <a class="dl" href="https://lmilsom.github.io/website_files/7_cities.pdf">Slides &darr;</a>
+    </td>
+    <td class="readings"><dl>
+      <dt>Main</dt><dd><b><a href="https://www.nber.org/system/files/working_papers/w26390/w26390.pdf">Bryan et&nbsp;al. (2020)</a></b>; <b><a href="https://www.nber.org/system/files/working_papers/w20172/w20172.pdf">Bryan et&nbsp;al. (2014)</a></b></dd>
+      <dt>Theory</dt><dd>Urban and spatial economics</dd>
+      <dt>Metrics</dt><dd>LATE and ITT</dd>
+      <dt>More</dt><dd>Glaeser, <em>Triumph of the City</em>; <a href="https://www.aeaweb.org/articles?id=10.1257/aer.20171673">Harari (2020)</a>; <a href="https://static1.squarespace.com/static/55bb98e2e4b0ba843f39599e/t/64c98e1aa0fcf82d1bda8d52/1690930717404/TsivanidisTransMillenio_8.2023.pdf">Tsivanidis (2023)</a></dd>
+    </dl></td>
+  </tr>
+
+  <tr>
+    <td class="when-cell"><span class="lecno">Question 7</span></td>
+    <td class="session">
+      <h2>How will climate change interact with the development challenge?</h2>
+      <a class="dl" href="https://lmilsom.github.io/website_files/8_climate_change.pdf">Slides &darr;</a>
+    </td>
+    <td class="readings"><dl>
+      <dt>Main</dt><dd><b><a href="https://www.romandavidzarate.com/_files/ugd/0794ab_dc63a59a8681446abc6594ddc1792565.pdf">Jedwab et&nbsp;al. (2023)</a></b>; <b><a href="https://drive.google.com/file/d/13bAtgpQHiWE3Kjtgu6aN5Jud2FCD1ryf/view">Gollin &amp; Wolfersberger (2024)</a></b></dd>
+      <dt>Theory</dt><dd>Quantitative spatial economics</dd>
+      <dt>Metrics</dt><dd>Difference in differences</dd>
+    </dl></td>
+  </tr>
+
+  <!-- ================= PROJECT · WEEKS 8–12 ================= -->
+  <tr class="sec">
+    <td class="qcell" rowspan="3">
+      <span class="qspan">Project · Weeks 8–12</span>
+      <p class="qa"><b>Weight</b>40% of the final grade</p>
+      <p><b>Format</b>Groups of 3–5 · presentation</p>
+    </td>
+    <td class="when-cell"><span class="lecno">Project</span>Weeks 8–12</td>
+    <td class="session">
+      <h2>Group project</h2>
+      <p class="note">Form your own groups of 3 to 5. Groups come up with their own question based on one or more topics discussed in the lectures, and present their project — this is a presentation, not a written project.</p>
+      <!-- When ready, swap each pending pill for a live link, e.g.
+           <a class="dl" href="pdf/project_info.pdf">Information &darr;</a> -->
+      <span class="dl pending">Information soon</span>
+      <span class="dl pending">Useful resources soon</span>
+      <span class="dl pending">Past excellent projects soon</span>
+    </td>
+    <td class="readings"><dl>
+    </dl></td>
+  </tr>
+
+  <tr class="doing">
+    <td class="when-cell"><span class="lecno">1-1 Meetings</span>Week commencing<br>23 Nov</td>
+    <td class="session">
+      <h2>One-to-one group meetings</h2>
+      <p class="note">I will meet with each group individually to discuss their project.</p>
+    </td>
+    <td class="readings"><dl>
+    </dl></td>
+  </tr>
+
+  <tr class="doing">
+    <td class="when-cell"><span class="lecno">Presentations</span>Week commencing<br>7 Dec</td>
+    <td class="session">
+      <h2>Project presentations</h2>
+    </td>
+    <td class="readings"><dl>
+    </dl></td>
+  </tr>
+
+  <!-- ================= EXAM ================= -->
+  <tr class="sec">
+    <td class="qcell" rowspan="1">
+      <span class="qspan">Exam</span>
+      <p class="qa"><b>Weight</b>60% of the final grade</p>
+    </td>
+    <td class="when-cell"><span class="lecno">Exam</span>January<span class="time">Exam period</span></td>
+    <td class="session">
+      <h2>Closed-book exam</h2>
+      <p class="note">In the normal exam period. This will not be a multiple-choice exam. You must be in Leuven on the day of the exam.</p>
+      <!-- When ready, swap each pending pill for a live link, e.g.
+           <a class="dl" href="pdf/past_paper_2025.pdf">Past papers &darr;</a> -->
+      <span class="dl pending">Past papers soon</span>
+      <span class="dl pending">Revision slides soon</span>
+    </td>
+    <td class="readings"><dl>
+    </dl></td>
+  </tr>
+
+  </tbody>
+</table>
+
+<hr class="masthead-rule">
+<p class="lede">
+  These notes are heavily indebted to Hannah Ameye's previous versions of this course. In addition, I have taken
+  inspiration from the teaching material of Clément Imbert (Sciences&nbsp;Po/Warwick), Supreet Kaur (Berkeley),
+  Imran Rasul (UCL), Esther Duflo (MIT), and Simon Quinn (Oxford).
+</p>
+
+</div>
+</body>
+</html>
